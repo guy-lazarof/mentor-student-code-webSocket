@@ -1,0 +1,17 @@
+[
+  {
+    "title": "1write a for loop 0-9",
+    "code": "for(i = 0; i<=10; i++)",
+    "answer": "for(let i = 0; i<=10; i++)"
+  },
+  {
+    "title": "2write a for loop 10-19",
+    "code": "for(i = 0; i<=10; i++)",
+    "answer": "for(let i = 10; i<=10; i++)"
+  },
+  {
+    "title": "3write a for loop 20-29",
+    "code": "for(i = 0; i<=10; i++)",
+    "answer": "for(let i = 20; i<=10; i++)"
+  }
+]
