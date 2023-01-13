@@ -4,33 +4,38 @@ import { useParams } from 'react-router-dom';
 import { codeService } from '../services/code.service';
 import { Lobby } from './lobby';
 
-export function CodeBlock() {
-  const [codeState, setCodeState] = useState('')
+export function CodeBlock({ codes }) {
+  const [codeToDisplayState, setCodeToDisplayState] = useState(null)
   const { codeId } = useParams()
 
   useEffect(() => {
-    loadCode()
+    findCode(codeId)
   }, [])
 
-  function loadCode() {
-    codeService.get(codeId)
-      .then((code) => setCodeState(code))
-      .catch(err => console.log(err))
-  }
-  if (!codeState) return <h2>Loading code...</h2>
-  const { _id, title, description, example, challenge, code, } = codeState
+  function findCode(codeId) {
+    if (codes.length) {
+      const currCode = codes.filter(code => code._id === codeId)
 
-  return (
-    < article className='code-block' >
-      <div>
-        <p>{_id}</p>
-        <p className='code-block-title'>{title}</p><br />
-        <p>{description}</p><br />
-        <p>{example}</p><br />
-        <p>{challenge}</p><br />
-        <p>//Write your code below </p>
-        <p>{code}</p>
-      </div>
-    </article >
-  )
+      setCodeToDisplayState(() => currCode)
+    }
+  }
+
+  if (!codeToDisplayState) {
+    return <h2> Loading code</h2>
+  } else {
+    const { _id, title, description, example, challenge, code } = codeToDisplayState[0]
+    return (
+      < article className='code-block' >
+        <div>
+          <p>{_id}</p><br />
+          <p className='code-block-title'>{title}</p><br />
+          <p>{description}</p><br />
+          <p>{example}</p><br />
+          <p>{challenge}</p><br />
+          <p>//Write your code below </p>
+          <p>{code}</p>
+        </div>
+      </article >
+    )
+  }
 }

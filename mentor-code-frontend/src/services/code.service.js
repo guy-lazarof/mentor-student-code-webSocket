@@ -9,8 +9,8 @@ export const codeService = {
 
 }
 
-_createCodes()
 
+_createCodes()
 
 function query() {
   return storageService.query(STORAGE_KEY)
