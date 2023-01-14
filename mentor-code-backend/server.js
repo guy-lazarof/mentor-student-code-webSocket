@@ -3,6 +3,13 @@ const cors = require('cors')
 const app = express()
 const codeService = require('./services/code.service.js')
 const path = require('path')
+const { socketServer } = require('./socket')
+const dotenv = require('dotenv')
+dotenv.config()
+
+const { client } = require('./DB-mongo/db.connection.js')
+const { initDB } = require('./DB-mongo/db-init.js')
+
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.resolve(__dirname, 'public')))
@@ -41,25 +48,18 @@ app.get('/api/code/:codeId', (req, res) => {
     })
 })
 
-app.put('/api/code', (req, res) => {
-  const code = req.body
-
-  codeService.save(code)
-    .then((savedCode) => {
-      res.send(savedCode)
-    })
-    .catch(err => {
-      console.log('Error:', err)
-      res.status(400).send('Cannot update code')
-    })
-})
-
 app.get('/**', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'))
 })
 
 const port = process.env.PORT || 3030;
 
-app.listen(port, () => {
-  console.log(`App listening on port ${port}!`)
-})
+client.connect()
+  .then(async () => {
+    // await initDB()
+    app.listen(port, () => {
+      console.log(`App listening on port ${port}!`)
+    })
+  })
+
+
