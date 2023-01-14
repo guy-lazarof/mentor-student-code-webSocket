@@ -2,6 +2,7 @@ const express = require('express')
 const app = express()
 const http = require("http")
 const cors = require('cors')
+const path = require('path')
 const { Server } = require('socket.io')
 const { MongoClient } = require('mongodb')
 const dotenv = require('dotenv')
@@ -54,10 +55,12 @@ MongoClient.connect(uri, { useNewUrlParser: true }, (err, client) => {
 
 io.on('connection', (socket) => {
   console.log(`A user connected ${socket.id}`);
+
   socket.on('disconnect', () => {
     console.log(`A user disconnected  ${socket.id}`);
   });
 })
+
 server.listen(3001, () => {
   console.log(`App listening on port 3001!`)
 })
