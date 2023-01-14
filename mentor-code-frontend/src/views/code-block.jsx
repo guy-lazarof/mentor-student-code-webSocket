@@ -5,23 +5,6 @@ import { codeService } from '../services/code.service';
 import { Lobby } from './lobby';
 
 export function CodeBlock({ codes }) {
-  //create web socket connection
-  const socket = new WebSocket('ws://localhost:3000')
-
-  //connection opened
-  socket.addEventListener('open', function (event) {
-    console.log('connected to ws Server');
-  })
-
-  // listen for messages
-  socket.addEventListener('message', function (event) {
-    console.log('messagefrom server', event.data);
-  })
-
-  const sendMessage = () => {
-    socket.send('Hello from client1')
-  }
-
   const [codeToDisplayState, setCodeToDisplayState] = useState(null)
   const { codeId } = useParams()
   const [textState, setTextState] = useState('initial');
@@ -50,14 +33,19 @@ export function CodeBlock({ codes }) {
 
   function displayCode() {
     const { _id, title, description, example, challenge, code } = (codeToDisplayState)
-    let text = `${_id}
-              ${title}
+    let text = `${title}
     
-                ${description}
-                ${example}
-                ${challenge}
-                ${code}
-                `
+Description: ${description}
+
+Example: ${example}
+
+Your challenge:${challenge}
+
+Add your code here:
+
+
+${code}
+`
     setTextState(text)
   }
 
@@ -67,6 +55,7 @@ export function CodeBlock({ codes }) {
       <textarea className='code-block-text-area'
         value={textState}
         onChange={(e) => setTextState(e.target.value)}
+        spellCheck="false"
       />
     </article >
   )

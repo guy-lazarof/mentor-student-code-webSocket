@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon --ignore \"./data\" server.js"
+    "dev": "nodemon --ignore \"./data\" socket.js"
   },
   "keywords": [],
   "author": "",
@@ -16,6 +16,6 @@
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "mongodb": "^4.13.0",
-    "ws": "^8.12.0"
+    "socket.io": "^4.5.4"
   }
 }

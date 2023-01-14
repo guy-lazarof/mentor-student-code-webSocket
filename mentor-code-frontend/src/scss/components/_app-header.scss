@@ -2,7 +2,36 @@ header.app-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background-color: #1e2d40;
 
-    background-color: $clr6;
+    .nav-bar {
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        flex-grow: 1;
+        font-weight: 800;
 
+        font-size: 20px;
+        padding: 3px;
+        display: flex;
+        gap: 10px;
+        margin-right: 20px;
+        justify-content: center;
+
+        .navLink {
+            text-decoration: none;
+            color: #438d7b;
+        }
+
+        .active {
+            color: $clrHeader;
+        }
+    }
+
+}
+
+.app-logo {
+    width: 40px;
+
+    .logo {
+        border-radius: 50px;
+    }
 }

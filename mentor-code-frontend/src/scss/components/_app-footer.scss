@@ -1,9 +1,11 @@
 footer.app-footer {
+    background-color: #1e2d40;
     position: fixed;
     left: 0;
     bottom: 0;
     width: 100%;
-    background-color: $clr6;
+    // background-color: $clr6;
+    color: $clrHeader;
     text-align: center;
     font-size: 1.1rem;
 }

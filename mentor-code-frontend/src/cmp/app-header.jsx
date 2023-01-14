@@ -1,15 +1,17 @@
 import { NavLink } from 'react-router-dom';
 
+import photo from './../scss/img/logo.png';
+
 export function AppHeader() {
 
     return (
         <header className="app-header">
-            <NavLink to="/">
-                <img src='./img/lazarof.png' className='app-logo'></img>
+            <NavLink to="/" className='app-logo'>
+                <img className='logo' src={photo} alt="logo" />
             </NavLink>
-            <nav >
-                <NavLink to="/">Code</NavLink> |
-                <NavLink to="/about">About</NavLink>
+            <nav className='nav-bar'>
+                <NavLink to="/" className='navLink'>Code</NavLink> |
+                <NavLink to="/about" className='navLink'>About</NavLink>
             </nav >
 
         </header >

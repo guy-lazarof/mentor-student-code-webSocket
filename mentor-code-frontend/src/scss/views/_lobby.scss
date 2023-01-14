@@ -2,7 +2,7 @@
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  background-color: rgb(142, 145, 144);
+  background-color: rgb(233, 232, 232);
   gap: 15px;
   padding: 10px;
   text-align: center;
@@ -11,7 +11,7 @@
 
   .code-preview {
     border: solid 1px black;
-    background-color: rgb(217, 235, 205);
+    background-color: rgb(244, 248, 220);
     border-radius: 15px;
 
     &:hover {
@@ -23,7 +23,7 @@
       font-weight: 800;
       font-size: 2rem;
       margin: 15px;
-      color: $clr7;
+      color: #1e2d40;
     }
 
     &-description {

@@ -1,12 +1,16 @@
 import { useNavigate } from 'react-router-dom';
+import io from 'socket.io-client';
 
 import { CodePreview } from '../cmp/code-preview';
+
+const socket = io.connect("http://localhost:3001")
 
 export function Lobby({ codes }) {
   const navigate = useNavigate()
 
   function openCodeBlock(codeId) {
     navigate(`/code-block/${codeId}`)
+    // socket.emit('choose_code', codeId)
   }
 
   return (

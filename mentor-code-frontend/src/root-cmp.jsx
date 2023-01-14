@@ -2,6 +2,7 @@ import './scss/style.scss';
 
 import { useEffect, useState } from 'react';
 import { HashRouter as Router, Route, Routes, useNavigate } from 'react-router-dom';
+import io from 'socket.io-client';
 
 import { AppFooter } from './cmp/app-footer';
 import { AppHeader } from './cmp/app-header';
@@ -10,17 +11,18 @@ import { About } from './views/about';
 import { CodeBlock } from './views/code-block';
 import { Lobby } from './views/lobby';
 
+const socket = io.connect("http://localhost:3001")
+
 export default function RootCmp() {
   const [codesState, setCodesState] = useState([])
-  useEffect(() => {
-    loadCodes()
-  }, [])
 
-  function loadCodes() {
-    codeService.query()
-      .then((codes) => { setCodesState(codes) })
-      .catch(err => { throw err })
-  }
+  socket.on('connect', () => {
+    socket.emit('getData');
+  });
+
+  socket.on('data', (data) => {
+    setCodesState(data);
+  });
 
   return (
     <div className="App">
