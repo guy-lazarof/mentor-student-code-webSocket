@@ -1,13 +1,15 @@
 {
   "files": {
-    "main.css": "/static/css/main.73740c76.css",
-    "main.js": "/static/js/main.cd780d9c.js",
+    "main.css": "/static/css/main.00a036a5.css",
+    "main.js": "/static/js/main.f928198c.js",
+    "static/media/lazarof.png": "/static/media/lazarof.9154355214dd4ebfa81a.png",
+    "static/media/fa-brands-400.ttf": "/static/media/fa-brands-400.450a5c898f0b184b968b.ttf",
     "index.html": "/index.html",
-    "main.73740c76.css.map": "/static/css/main.73740c76.css.map",
-    "main.cd780d9c.js.map": "/static/js/main.cd780d9c.js.map"
+    "main.00a036a5.css.map": "/static/css/main.00a036a5.css.map",
+    "main.f928198c.js.map": "/static/js/main.f928198c.js.map"
   },
   "entrypoints": [
-    "static/css/main.73740c76.css",
-    "static/js/main.cd780d9c.js"
+    "static/css/main.00a036a5.css",
+    "static/js/main.f928198c.js"
   ]
 }
