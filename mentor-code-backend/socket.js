@@ -28,7 +28,7 @@ const io = new Server(server, {
   }
 })
 
-console.log(uri);
+
 // Connect to MongoDB
 MongoClient.connect(uri, { useNewUrlParser: true }, (err, client) => {
   if (err) {
@@ -64,7 +64,7 @@ io.on('connection', (socket) => {
 })
 
 app.get('/**', (req, res) => {
-  console.log('Hey');
+  // console.log('Hey');
   res.sendFile(path.join(__dirname, 'public', 'index.html'))
 })
 
