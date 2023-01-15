@@ -34,6 +34,7 @@ MongoClient.connect(uri, { useNewUrlParser: true }, (err, client) => {
     console.log(err);
     return;
   }
+  console.log(uri);
 
   const db = client.db('codeDB');
   const collection = db.collection('codesCollection');
@@ -41,11 +42,13 @@ MongoClient.connect(uri, { useNewUrlParser: true }, (err, client) => {
   io.on('connection', (socket) => {
 
     socket.on('getData', () => {
+      console.log('Hello from sockert')
       collection.find({}).toArray((err, data) => {
         if (err) {
           console.log(err);
           return;
         }
+        console.log(data, 'data')
         socket.emit('data', data);
       });
     });
