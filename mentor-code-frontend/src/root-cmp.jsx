@@ -11,7 +11,7 @@ import { About } from './views/about';
 import { CodeBlock } from './views/code-block';
 import { Lobby } from './views/lobby';
 
-const socket = io.connect("http://localhost:3001")
+const socket = io.connect(process.env.SOCKET_URL || "http://localhost:3001")
 
 export default function RootCmp() {
   const [codesState, setCodesState] = useState([])

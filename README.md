@@ -7,8 +7,8 @@ the mentor and the student can get into any question.
 The student can learn and try while the mentor watch him writting the code (by Websocket).
 
 if you start the code locally the orders are:
-## 1) cd mentor-code-backend => npm start
-## 2) cd mentor-code-frontend => npm start
+## 1) cd mentor-code-backend => npi i => npm start
+## 2) cd mentor-code-frontend => npi i => npm start
 
 Here some app views photos :)
 
