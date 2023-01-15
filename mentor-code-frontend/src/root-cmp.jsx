@@ -23,7 +23,6 @@ export default function RootCmp() {
   socket.on('data', (data) => {
     setCodesState(data);
   });
-  console.log('codesState:', codesState)
   return (
     <div className="App">
       < Router >

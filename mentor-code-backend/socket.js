@@ -42,13 +42,11 @@ MongoClient.connect(uri, { useNewUrlParser: true }, (err, client) => {
   io.on('connection', (socket) => {
 
     socket.on('getData', () => {
-      console.log('Hello from sockert')
       collection.find({}).toArray((err, data) => {
         if (err) {
           console.log(err);
           return;
         }
-        console.log(data, 'data')
         socket.emit('data', data);
       });
     });
@@ -64,7 +62,6 @@ io.on('connection', (socket) => {
 })
 
 app.get('/**', (req, res) => {
-  // console.log('Hey');
   res.sendFile(path.join(__dirname, 'public', 'index.html'))
 })
 
