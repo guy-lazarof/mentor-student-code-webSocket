@@ -64,6 +64,7 @@ io.on('connection', (socket) => {
 })
 
 app.get('/**', (req, res) => {
+  console.log('Hey');
   res.sendFile(path.join(__dirname, 'public', 'index.html'))
 })
 
