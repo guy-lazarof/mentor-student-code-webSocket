@@ -28,13 +28,13 @@ const io = new Server(server, {
   }
 })
 
+console.log(uri);
 // Connect to MongoDB
 MongoClient.connect(uri, { useNewUrlParser: true }, (err, client) => {
   if (err) {
     console.log(err);
     return;
   }
-  console.log(uri);
 
   const db = client.db('codeDB');
   const collection = db.collection('codesCollection');
